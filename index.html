@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pista Total - Automobilismo e Velocidade</title>
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,800;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO E MENU DE NAVEGAÇÃO -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#inicio" class="logo">
+                <i class="fa-solid fa-flag-checkered logo-icon"></i>
+                <div class="logo-text">
+                    <h1>PISTA <span>TOTAL</span></h1>
+                    <p>Automobilismo e Velocidade</p>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="navbar" id="navbar">
+                <ul>
+                    <li><a href="#inicio" class="nav-link active">Início</a></li>
+                    <li><a href="#eventos" class="nav-link">Eventos</a></li>
+                    <li><a href="#noticias" class="nav-link">Notícias</a></li>
+                    <li><a href="#video" class="nav-link">Vídeo</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SEÇÃO INÍCIO: CARROSSEL HERO ANIMADO -->
+    <section id="inicio" class="hero-carousel">
+        <div class="slides-wrapper">
+            <!-- Slide 1 -->
+            <article class="slide active">
+                <img src="img/banner-1.jpg" 
+                     onerror="this.src='./img/banner 1.png'" 
+                     alt="Carro de corrida vermelho acelerando na pista à noite" class="slide-bg">
+                <div class="slide-overlay"></div>
+                <div class="container slide-content">
+                    <h2>O mundo da <br><span>velocidade</span></h2>
+                    <p>Notícias, eventos, curiosidades e tudo sobre automobilismo.</p>
+                    <a href="#eventos" class="btn-red">Explore o Conteúdo <i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Slide 2 -->
+            <article class="slide">
+                <img src="img/banner-2.jpg" 
+                     onerror="this.src='./img/banner 2 carrossel.png'" 
+                     alt="Carros de Fórmula 1 disputando posição na curva" class="slide-bg">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h2>Adrenalina nas <br><span>pistas</span></h2>
+                    <p>Acompanhe os bastidores, resultados e calendários das maiores categorias.</p>
+                    <a href="#noticias" class="btn-red">Ver Destaques <i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Slide 3 -->
+            <article class="slide">
+                <img src="img/banner-3.jpg" 
+                     onerror="this.src='./img/banner 3.png'" 
+                     alt="Encontro de entusiastas e carros esportivos no autódromo" class="slide-bg">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h2>Comunidade & <br><span>Encontros</span></h2>
+                    <p>Participe dos eventos do clube e acelere com outros apaixonados por motores.</p>
+                    <a href="#contato" class="btn-red">Fale Conosco <i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Setas do Carrossel -->
+        <button class="carousel-arrow prev" id="prevBtn" aria-label="Slide anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow next" id="nextBtn" aria-label="Próximo slide">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Bolinhas (Dots) -->
+        <div class="carousel-dots" id="carouselDots">
+            <button class="dot active" data-slide="0" aria-label="Ir para slide 1"></button>
+            <button class="dot" data-slide="1" aria-label="Ir para slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Ir para slide 3"></button>
+        </div>
+    </section>
+
+    <!-- FAIXA DE 3 CARDS INFORMATIVOS (NOTÍCIAS, CALENDÁRIO E COMUNIDADE) -->
+    <section id="noticias" class="info-strip">
+        <div class="container info-grid">
+            <!-- Card Informativo 1: Calendário -->
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fa-regular fa-calendar-days"></i>
+                </div>
+                <div class="info-text">
+                    <h3>Calendário de Corridas</h3>
+                    <p>Datas, horários e circuitos oficiais da temporada.</p>
+                </div>
+            </div>
+
+            <!-- Card Informativo 2: Notícias -->
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fa-regular fa-newspaper"></i>
+                </div>
+                <div class="info-text">
+                    <h3>Notícias Atualizadas</h3>
+                    <p>Tudo sobre o automobilismo nacional e mundial.</p>
+                </div>
+            </div>
+
+            <!-- Card Informativo 3: Comunidade de Fãs -->
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="info-text">
+                    <h3>Comunidade de Fãs</h3>
+                    <p>Encontros, track days e paixão pela velocidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PRINCIPAL: 4 CARDS DE EVENTOS/MODALIDADES + VÍDEO + CURIOSIDADE -->
+    <main class="main-area container">
+        
+        <!-- COLUNA ESQUERDA: 4 CARDS PRINCIPAIS (F1, STOCK CAR, KART, ENDURANCE) -->
+        <section id="eventos" class="events-section">
+            <h2 class="section-heading">Próximos Eventos</h2>
+            
+            <div class="events-grid">
+                <!-- Card 1: Fórmula 1 -->
+                <article class="event-card">
+                    <div class="card-img-box">
+                        <img src="img/f1.jpg" 
+                             onerror="this.src='./img/formula 1 gp interlagos.png'" 
+                             alt="Carro de Fórmula 1 na pista" loading="lazy">
+                    </div>
+                    <div class="card-info">
+                        <h3>Fórmula 1</h3>
+                        <p class="event-place">GP do Brasil • Interlagos</p>
+                        <p class="event-desc">A elite do automobilismo mundial desembarca em São Paulo para a etapa decisiva.</p>
+                        <span class="event-date"><i class="fa-regular fa-calendar"></i> 08 a 10 Nov</span>
+                    </div>
+                </article>
+
+                <!-- Card 2: Stock Car -->
+                <article class="event-card">
+                    <div class="card-img-box">
+                        <img src="img/stockcar.jpg" 
+                             onerror="this.src='./img/stock car.png'" 
+                             alt="Carros de turismo Stock Car" loading="lazy">
+                    </div>
+                    <div class="card-info">
+                        <h3>Stock Car</h3>
+                        <p class="event-place">Etapa Goiânia • Autódromo Internacional</p>
+                        <p class="event-desc">Disputas roda a roda com os motores V8 mais potentes do Brasil.</p>
+                        <span class="event-date"><i class="fa-regular fa-calendar"></i> 22 Nov</span>
+                    </div>
+                </article>
+
+                <!-- Card 3: Kart -->
+                <article class="event-card">
+                    <div class="card-img-box">
+                        <img src="img/kart.jpg" 
+                             onerror="this.src='./img/Kart.png'" 
+                             alt="Competição de Kart" loading="lazy">
+                    </div>
+                    <div class="card-info">
+                        <h3>Kart</h3>
+                        <p class="event-place">Copa Pista Total • Granja Viana</p>
+                        <p class="event-desc">Encontro oficial da nossa comunidade com baterias amadoras e profissionais.</p>
+                        <span class="event-date"><i class="fa-regular fa-calendar"></i> 29 Nov</span>
+                    </div>
+                </article>
+
+                <!-- Card 4: Endurance -->
+                <article class="event-card">
+                    <div class="card-img-box">
+                        <img src="img/endurance.jpg" 
+                             onerror="this.src='./img/endurance.png'" 
+                             alt="Carro protótipo de corrida Endurance" loading="lazy">
+                    </div>
+                    <div class="card-info">
+                        <h3>Endurance</h3>
+                        <p class="event-place">6 Horas de Interlagos • Protótipos e GTs</p>
+                        <p class="event-desc">Resistência, estratégia nos boxes e troca de pilotos em corrida de longa duração.</p>
+                        <span class="event-date"><i class="fa-regular fa-calendar"></i> 06 Dez</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- COLUNA DIREITA: VÍDEO DO YOUTUBE + BOTÃO MOSTRAR CURIOSIDADE -->
+        <aside class="sidebar-area">
+            <!-- Vídeo Incorporado -->
+            <section id="video" class="video-section">
+                <h2 class="section-heading">Vídeo em Destaque</h2>
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/wtJPe1ksS6E" 
+                        title="F1 - Melhores Momentos do Automobilismo" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Recurso JS 2: Botão Mostrar Curiosidade -->
+            <section class="curiosity-card">
+                <div class="curiosity-header">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <h3>Curiosidade das Pistas</h3>
+                </div>
+                <p id="curiosityText">Um carro de Fórmula 1 moderno gera tanta pressão aerodinâmica que poderia andar de cabeça para baixo no teto de um túnel acima de 200 km/h.</p>
+                <button type="button" id="btnCuriosity" class="btn-curiosity">
+                    Mostrar curiosidade
+                </button>
+            </section>
+        </aside>
+
+    </main>
+
+    <!-- RODAPÉ / CONTATO -->
+    <footer id="contato" class="footer">
+        <div class="container footer-container">
+            <!-- Marca e E-mail Fictício -->
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fa-solid fa-flag-checkered logo-icon"></i>
+                    <div class="logo-text">
+                        <h2>PISTA <span>TOTAL</span></h2>
+                        <p>Automobilismo e Velocidade</p>
+                    </div>
+                </div>
+                <p class="footer-email">
+                    <i class="fa-regular fa-envelope"></i> contato@pistatotal.com.br
+                </p>
+            </div>
+
+            <!-- Links de Navegação e Direitos -->
+            <div class="footer-center">
+                <ul class="footer-nav">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#noticias">Notícias</a></li>
+                    <li><a href="#video">Vídeo</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <p class="copyright">&copy; 2026 Pista Total. Todos os direitos reservados.</p>
+            </div>
+
+            <!-- Redes Sociais -->
+            <div class="footer-social">
+                <a href="#contato" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#video" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#contato" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Externo -->
+    <script src="./js/script.js"></script>
+</body>
+</html>

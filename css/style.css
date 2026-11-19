@@ -1,0 +1,625 @@
+/* =========================================
+   VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================= */
+:root {
+    --bg-dark: #111111;
+    --bg-darker: #090909;
+    --bg-strip: #181818;
+    --bg-page: #f4f4f6;
+    --card-bg: #ffffff;
+    --red-primary: #d91e18;
+    --red-hover: #b01510;
+    --text-white: #ffffff;
+    --text-muted: #cccccc;
+    --text-dark: #1c1c1c;
+    --border-dark: #2c2c2c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px; /* Garante que o cabeçalho fixo não cubra os títulos ao clicar no menu */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   CABEÇALHO E MENU DE NAVEGAÇÃO
+   ========================================= */
+.header {
+    background-color: var(--bg-darker);
+    color: var(--text-white);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--border-dark);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+.logo-icon {
+    font-size: 2.2rem;
+    color: var(--text-white);
+}
+
+.logo-text h1,
+.logo-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 1.55rem;
+    line-height: 1;
+    letter-spacing: 0.5px;
+}
+
+.logo-text span {
+    color: var(--red-primary);
+}
+
+.logo-text p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(217, 30, 24, 0.35);
+}
+
+/* Destaque vermelho ativo no menu */
+.nav-link.active {
+    background-color: var(--red-primary);
+    font-weight: 700;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+/* =========================================
+   CARROSSEL HERO (BANNER PRINCIPAL)
+   ========================================= */
+.hero-carousel {
+    position: relative;
+    height: 440px;
+    background-color: var(--bg-dark);
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10, 10, 10, 0.92) 32%, rgba(10, 10, 10, 0.25) 100%);
+    z-index: 2;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 3;
+    color: var(--text-white);
+}
+
+.slide-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.1rem;
+    font-weight: 900;
+    line-height: 1.08;
+    margin-bottom: 14px;
+}
+
+.slide-content h2 span {
+    color: var(--red-primary);
+}
+
+.slide-content p {
+    font-size: 1.1rem;
+    color: #e5e5e5;
+    max-width: 440px;
+    margin-bottom: 24px;
+}
+
+.btn-red {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--red-primary);
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-red:hover {
+    background-color: var(--red-hover);
+    transform: translateY(-2px);
+}
+
+/* Controles do Carrossel */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.22);
+    color: var(--text-white);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.carousel-arrow:hover {
+    background-color: var(--red-primary);
+}
+
+.carousel-arrow.prev { left: 20px; }
+.carousel-arrow.next { right: 20px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.dot.active {
+    background-color: var(--red-primary);
+    transform: scale(1.15);
+}
+
+/* =========================================
+   FAIXA DE 3 CARDS INFORMATIVOS
+   ========================================= */
+.info-strip {
+    background-color: var(--bg-strip);
+    color: var(--text-white);
+    padding: 24px 0;
+    border-top: 1px solid var(--border-dark);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 16px;
+    border-right: 1px solid var(--border-dark);
+}
+
+.info-item:last-child {
+    border-right: none;
+}
+
+.info-icon {
+    font-size: 2rem;
+    color: var(--text-white);
+}
+
+.info-text h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.info-text p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   ÁREA PRINCIPAL (4 CARDS + VÍDEO + CURIOSIDADE)
+   ========================================= */
+.main-area {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    padding: 45px 0;
+}
+
+.section-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    border-left: 4px solid var(--red-primary);
+    padding-left: 10px;
+}
+
+/* Grid dos 4 Cards Principais */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.event-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+}
+
+.card-img-box {
+    height: 155px;
+    overflow: hidden;
+}
+
+.card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.event-card:hover .card-img-box img {
+    transform: scale(1.06);
+}
+
+.card-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+}
+
+.event-place {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #555555;
+    margin-bottom: 8px;
+}
+
+.event-desc {
+    font-size: 0.85rem;
+    color: #666666;
+    margin-bottom: 14px;
+    flex-grow: 1;
+}
+
+.event-date {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.event-date i {
+    color: var(--red-primary);
+}
+
+/* Barra Lateral (Vídeo + Curiosidade) */
+.sidebar-area {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+    background-color: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Card de Curiosidade JS */
+.curiosity-card {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    padding: 22px;
+    border-radius: 10px;
+    border-top: 4px solid var(--red-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.curiosity-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: var(--red-primary);
+}
+
+.curiosity-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+}
+
+.curiosity-card p {
+    font-size: 0.92rem;
+    color: #e6e6e6;
+    margin-bottom: 18px;
+    min-height: 72px;
+    transition: opacity 0.25s ease;
+}
+
+.btn-curiosity {
+    width: 100%;
+    padding: 11px 16px;
+    background-color: var(--red-primary);
+    color: var(--text-white);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.btn-curiosity:hover {
+    background-color: var(--red-hover);
+}
+
+/* =========================================
+   RODAPÉ / CONTATO
+   ========================================= */
+.footer {
+    background-color: var(--bg-darker);
+    color: var(--text-white);
+    padding: 32px 0;
+    border-top: 3px solid var(--red-primary);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.footer-email {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-email i {
+    color: var(--red-primary);
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-nav {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 8px;
+}
+
+.footer-nav a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--red-primary);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background-color: #222222;
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.25s ease;
+}
+
+.footer-social a:hover {
+    background-color: var(--red-primary);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 900px) {
+    .main-area {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border-dark);
+        padding-bottom: 16px;
+    }
+
+    .info-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 680px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        width: 100%;
+        padding-top: 12px;
+    }
+
+    .navbar.open {
+        display: block;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+
+    .nav-link {
+        text-align: center;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slide-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
